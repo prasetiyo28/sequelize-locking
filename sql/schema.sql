@@ -1,8 +1,5 @@
 -- Membuat database dan user untuk aplikasi
 CREATE DATABASE IF NOT EXISTS sequelize_tx_demo CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-CREATE USER IF NOT EXISTS 'demo'@'%' IDENTIFIED BY 'demopass';
-GRANT ALL PRIVILEGES ON sequelize_tx_demo.* TO 'demo'@'%';
-FLUSH PRIVILEGES;
 
 -- Menggunakan database yang baru dibuat
 USE sequelize_tx_demo;
