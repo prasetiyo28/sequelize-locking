@@ -58,6 +58,21 @@ app.post('/transfer', async (req, res) => {
   }
 });
 
+// Endpoint untuk update saldo dengan mekanisme optimistic locking
+app.post('/optimistic-update', async (req, res) => {
+  try {
+    const { id, amount, version } = req.body;
+    // Ambil akun dengan id dan version yang dikirim user
+    const acc = await Account.findOne({ where: { id , version} });
+    if (!acc) return res.status(409).json({ error: 'Optimistic lock conflict' });
+    acc.balance = (Number(acc.balance) + Number(amount)).toFixed(2);
+    await acc.save();
+    res.json({ ok: true, account: acc });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Tentukan port server
 const PORT = process.env.PORT || 3000;
 // Jalankan server dan koneksi ke database

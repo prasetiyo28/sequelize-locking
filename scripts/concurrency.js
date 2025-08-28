@@ -6,7 +6,7 @@ const sequelize = require('../db');
   try{
     await sequelize.authenticate();
     const tasks=[];
-    const N=20;
+    const N=100;
     for(let i=0;i<N;i++){
       const fromId=i%2===0?1:2;
       const toId=i%2===0?2:1;

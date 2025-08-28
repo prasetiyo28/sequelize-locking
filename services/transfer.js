@@ -31,7 +31,7 @@ async function transfer({ fromId, toId, amount }) {
     // Tunggu 1 menit sebelum update saldo
    
     // Tunggu 60 detik sebelum update saldo
-    await new Promise(resolve => setTimeout(resolve, 60000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     await from.save({ transaction: t }); 
     await to.save({ transaction: t });
     // Return hasil transfer
