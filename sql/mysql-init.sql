@@ -1,0 +1,4 @@
+-- CREATE DATABASE sequelize_tx_demo CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+-- CREATE USER 'demo'@'%' IDENTIFIED BY 'demopass';
+-- GRANT ALL PRIVILEGES ON sequelize_tx_demo.* TO 'demo'@'%';
+-- FLUSH PRIVILEGES;
